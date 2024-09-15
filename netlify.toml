@@ -1,0 +1,3 @@
+[build]
+  publish = "static"
+  # Specify the directory containing your static files
