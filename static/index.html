@@ -83,7 +83,7 @@
     <div class="container">
         <h1>Base64 Converter</h1>
 
-        <form action="/decode" method="post">
+        <form action="https://base64-flask.onrender.com/" method="post">
             <label for="encoded">Base64 Encoded String:</label>
             <input type="text" id="encoded" name="encoded" placeholder="Enter Base64 string" required>
             <input type="submit" value="Decode">
@@ -96,7 +96,7 @@
             </div>
         {% endif %}
 
-        <form action="/encode" method="post">
+        <form action="YOUR_BACKEND_URL/encode" method="post">
             <label for="text">Text to Encode:</label>
             <textarea id="text" name="text" rows="4" placeholder="Enter text here" required></textarea>
             <input type="submit" value="Encode">
