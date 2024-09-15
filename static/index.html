@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Converter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #00bcd4, #009688);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        label {
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        input[type="text"], textarea {
+            width: calc(100% - 22px);
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, textarea:focus {
+            border-color: #00bcd4;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #009688;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .error {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Base64 Converter</h1>
+
+        <form action="/decode" method="post">
+            <label for="encoded">Base64 Encoded String:</label>
+            <input type="text" id="encoded" name="encoded" placeholder="Enter Base64 string" required>
+            <input type="submit" value="Decode">
+        </form>
+
+        {% if decoded_text %}
+            <div class="result">
+                <h2>Decoded Text:</h2>
+                <p>{{ decoded_text }}</p>
+            </div>
+        {% endif %}
+
+        <form action="/encode" method="post">
+            <label for="text">Text to Encode:</label>
+            <textarea id="text" name="text" rows="4" placeholder="Enter text here" required></textarea>
+            <input type="submit" value="Encode">
+        </form>
+
+        {% if encoded_text %}
+            <div class="result">
+                <h2>Encoded String:</h2>
+                <p>{{ encoded_text }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
